@@ -8,19 +8,27 @@ export default function Projects() {
     const [open, setOpen] = React.useState(false);
     const [projects, setProjects] = React.useState<Project[]>([]);
     const [loading, setLoading] = React.useState(false);
+    const [searchTerm, setSearchTerm] = React.useState("");
+    const [sort, setSorting] = React.useState("deadline");
 
+    const handleSortingChange = () => {
+        const order = sort === "deadline" ? "deadline_desc" : "deadline";
+        setSorting(order);
+        refreshTable(searchTerm, order);
+       };
 
     const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
-        refreshTable(event.target.value);
+        setSearchTerm(event.target.value)
+        refreshTable(event.target.value, sort);
     }
 
     React.useEffect(() => {
         refreshTable();
       }, []);
 
-      const refreshTable = (searchTerm: String = "") => {
+      const refreshTable = (searchTerm: String = "", sortOrder: String = "deadline") => {
         setLoading(true)
-        getAll(searchTerm)
+        getAll(searchTerm,sortOrder)
         .then(json => setProjects(json))
         .finally(() => {
           setLoading(false)
@@ -48,7 +56,7 @@ export default function Projects() {
                 </div>
             </div>
 
-            <Table loading={loading} projects={projects}/>
+            <Table loading={loading} projects={projects} sorting={handleSortingChange}/>
         </>
     );
 }

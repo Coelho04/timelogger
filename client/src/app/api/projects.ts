@@ -1,11 +1,11 @@
 const BASE_URL = "http://localhost:3001";
 
-export async function getAll(searchTerm: String) {
-    var url = `${BASE_URL}/projects`;
+export async function getAll(searchTerm: String, sortOrder: String) {
+    var url = `${BASE_URL}/projects?sort=${sortOrder}`;
 
     if(searchTerm !== "")
     {
-        url = `${url}?name=${searchTerm}`;  
+        url = `${url}&name=${searchTerm}`;  
     }
 
     const response = await fetch(url);

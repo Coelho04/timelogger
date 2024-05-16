@@ -7,10 +7,12 @@ import { InserTimeRegistrationModal } from "./InsertTimeRegistrationModal";
 import { TimeRegistrationTable } from "./TimeRegistrationTable";
 import { TimeRegistration } from "../types/timeregistration";
 import { getAll } from "../api/timeRegistration";
+import SortIcon from '@mui/icons-material/Sort';
 
 export const Table = ({...props}) =>  {
     const [open, setOpen] = React.useState(false);
     const [openTimeRegistration, setTimeRegistrationOpen] = React.useState(false);
+    
 
     const [projectDetails, setProjectDetails] = React.useState({
         projectId: "",
@@ -45,7 +47,7 @@ export const Table = ({...props}) =>  {
                 <tr>
                     <th className="border px-4 py-2 w-12">Id</th>
                     <th className="border px-4 py-2">Project Name</th>
-                    <th className="border px-4 py-2">Deadline</th>
+                    <th className="border px-4 py-2">Deadline <SortIcon onClick={props.sorting}/></th>
                     <th className="border px-4 py-2">Completed</th>
                     <th className="border px-4 py-2 w-16"></th>
                 </tr>
