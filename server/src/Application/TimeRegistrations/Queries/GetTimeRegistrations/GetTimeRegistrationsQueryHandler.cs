@@ -1,5 +1,4 @@
 ﻿using Microsoft.Extensions.DependencyInjection.Projects.Models;
-using Microsoft.Extensions.DependencyInjection.Projects.Queries.GetProjects;
 using Timelogger.Application.Common.Interfaces;
 using Timelogger.Application.Common.Mappings;
 using Timelogger.Application.Common.Models;
@@ -13,6 +12,9 @@ public class GetTimeRegistrationsQueryHandler(IApplicationDbContext context, IMa
         CancellationToken cancellationToken)
     {
         (int projectId, int pageNumber, int pageSize) = request;
+
+        var x = context.TimeRegistrations
+            .Where(w => w.ProjectId == projectId);
         
         return await context.TimeRegistrations
             .Where(w => w.ProjectId == projectId)

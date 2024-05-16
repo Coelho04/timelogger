@@ -26,7 +26,6 @@
     <ItemGroup>
       <Folder Include="Projects\Queries\" />
       <Folder Include="TimeRegistrations\Commands\" />
-      <Folder Include="TimeRegistrations\Queries\" />
     </ItemGroup>
 
 </Project>
