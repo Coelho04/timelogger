@@ -9,13 +9,18 @@ export default function Projects() {
     const [projects, setProjects] = React.useState<Project[]>([]);
     const [loading, setLoading] = React.useState(false);
 
+
+    const handleSearch = (event: React.ChangeEvent<HTMLInputElement>) => {
+        refreshTable(event.target.value);
+    }
+
     React.useEffect(() => {
         refreshTable();
       }, []);
 
-      const refreshTable = () => {
+      const refreshTable = (searchTerm: String = "") => {
         setLoading(true)
-        getAll()
+        getAll(searchTerm)
         .then(json => setProjects(json))
         .finally(() => {
           setLoading(false)
@@ -33,19 +38,13 @@ export default function Projects() {
                 </div>
 
                 <div className="w-1/2 flex justify-end">
-                    <form>
                         <input
                             className="border rounded-full py-2 px-4"
                             type="search"
                             placeholder="Search"
                             aria-label="Search"
+                            onChange={handleSearch}
                         />
-                        <button
-                            className="bg-blue-500 hover:bg-blue-700 text-white rounded-full py-2 px-4 ml-2"
-                            type="submit">
-                            Search
-                        </button>
-                    </form>
                 </div>
             </div>
 

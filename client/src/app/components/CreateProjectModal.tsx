@@ -44,19 +44,20 @@ export const CreateProjectModal = ({...props}) => {
           <TextField
             autoFocus
             required
-            margin="normal"
             id="name"
             name="name"
             label="Project Name"
             type="text"
             variant="outlined"
+            style={{margin:10}}
           />
+          <br/>
           <DateField
           format='YYYY-MM-DD'
           required
           name="deadline"
           label="Project Deadline"
-          margin="normal"
+          style={{margin:10}}
           />
         </DialogContent>
         <DialogActions>

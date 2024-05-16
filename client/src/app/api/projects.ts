@@ -1,7 +1,14 @@
 const BASE_URL = "http://localhost:3001";
 
-export async function getAll() {
-    const response = await fetch(`${BASE_URL}/projects`);
+export async function getAll(searchTerm: String) {
+    var url = `${BASE_URL}/projects`;
+
+    if(searchTerm !== "")
+    {
+        url = `${url}?name=${searchTerm}`;  
+    }
+
+    const response = await fetch(url);
     const data = await response.json();
     return data.items;
 }
