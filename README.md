@@ -17,22 +17,14 @@ In the web application you should be able to Add Project, Filter by the project 
 In the api you all the endpoints needed to manage projects and times registration.
 For instance you can:
 
-Get a paginated list of a project.
-Delete a project
-Update a project
+Get a paginated list of a project.  
+Delete a project  
+Update a project  
 
-Get a paginated list of a registered times by project id.
-Delete a time registration
-Update a time registration
-
-There you already have the endpoints for a given operator (header: operatorId).
-
-Get All Collisions Events  
-Get A Single Collision Event  
-Get All Collision Events in a Warning State (Collision Probability >= 0.75)  
-Cancel A Collision Event  
-Delete A Collision Event  
-
+Get a paginated list of a registered times by project id.  
+Delete a time registration  
+Update a time registration  
+ 
 To run this project you will need both .NET 8 and Node installed on your environment.
 
 ## Considerations
