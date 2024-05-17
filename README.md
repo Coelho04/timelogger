@@ -2,7 +2,7 @@
 
 A very simple Client and Api for adding Projects and adding time spent in project.
 
-For more information regarding the exercise please read [Timelogger(https://github.com/e-conomic/timelogger)] readme.
+For more information regarding the exercise please read [Timelogger](https://github.com/e-conomic/timelogger) readme.
 
 This was done using the [Clean Architecture Solution Template](https://github.com/jasontaylordev/CleanArchitecture) by [JasonTaylorDev](https://github.com/jasontaylordev)
 
