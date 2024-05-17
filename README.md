@@ -1,57 +1,44 @@
 # e-conomic & sproom hiring task
 
-As a part of the e-conomic/sproom recruitment process we ask our candidates to complete a practical development challenge. The challenge consists of two parts:
+A very simple Client and Api for adding Projects and adding time spent in project.
 
-1. You solve the provided task, and send the results to us.
-2. We host a session where you present your solution to us, and we all have a nice talk about it.
+For more information regarding the exercise please read [Timelogger(https://github.com/e-conomic/timelogger)] readme.
 
-The task is to implement a simple time logger web application that solves the following three user stories:
+This was done using the [Clean Architecture Solution Template](https://github.com/jasontaylordev/CleanArchitecture) by [JasonTaylorDev](https://github.com/jasontaylordev)
 
-1. As a freelancer I want to be able to register how I spend time on my _projects_, so that I can provide my _customers_ with an overview of my work.
-2. As a freelancer I want to be able to get an _overview of my time registrations per project_, so that I can create correct invoices for my customers.
-2. As a freelancer I want to be able to _sort my projects by their deadline_, so that I can prioritise my work.
+A good video and good explanation about this is given by [Nick Chapsas](https://www.youtube.com/watch?v=YiVqwoFMieg).
 
-Individual time registrations should be 30 minutes or longer, and once a project is complete it can no longer receive new registrations. You do not need to create an actual invoice.
+Feel free to explore the application.
 
-We ask that you clone this repository to complete the task, rather than fork it. You can either push it to a repository on your own account, or simply send us the project in a zip if you prefer. We recommend removing installed dependencies such as the `node_modules` directory prior to zipping, to keep the file size down.
+When running the application on debug a database in memory will be created and populated with test data.
 
-When presenting the solution please bring your own laptop if you have one. If you do not, please inform us before the meeting so that we can prepare.
+In the web application you should be able to Add Project, Filter by the project name, register times in a project and see all the times registered in a specific project.
+
+In the api you all the endpoints needed to manage projects and times registration.
+For instance you can:
+
+Get a paginated list of a project.
+Delete a project
+Update a project
+
+Get a paginated list of a registered times by project id.
+Delete a time registration
+Update a time registration
+
+There you already have the endpoints for a given operator (header: operatorId).
+
+Get All Collisions Events  
+Get A Single Collision Event  
+Get All Collision Events in a Warning State (Collision Probability >= 0.75)  
+Cancel A Collision Event  
+Delete A Collision Event  
+
+To run this project you will need both .NET 8 and Node installed on your environment.
 
 ## Considerations
 
-What we're looking for is to see if you have the ability to transform a set of user requirements into a working solution, preferably creating some nice and clean code along the way. We will appreciate if your solution:
+I didn't had the time to cover the api with unit tests and integration tests, some were added but don't cover everything.
 
--   Works, obviously
--   Contains readable, bug free code
--   Is appropriately covered by tests, in the frontend and backend (where required)
--   Follows sensible structured design patterns and thought proceses
--   Validates user input and contains test coverage for these use cases, at least in the backend
--   The front-end is typed using typescript
+The client project structure and naming is not as pleasant as I would wanted to be.
+Unfortenally I didn't had the time to add tests to client project, being my background most a Backend Developer and a C# it was a little time consuming understand how are things with react at this day and age.
 
-We want to see that you have thought about the design of your application, and considered how it might scale as it's complexity increases:
-
--   Consider how your application might scale as it grows in use, and in number of developers working on it
--   Summarise any significant architectural decisions you take, to discuss in the presentation
-
-## Questions
-
-If you have any questions or concerns please simply ask.
-
----
-
-We realise there are a lot of moving parts to such an application. To help, we have scaffolded a .NET Core v3.1 solution containing some basic setup to get you started, and a create-react-app base application for the front-end, containing some basic components and bootstrap styling to get you started.
-
--   You are welcome to change or remove any part of this code, it is meant simply as a starting point
--   Styling and graphical design is not that important, we are assesing your ability to design and architect software - focus on that
--   Do not worry about authentication, imagine your application is already authenticated
--   You do not _need_ to create a database and can hardcode data in the appropriate place in your application, as if it were coming from a database
-
-## Development
-
-To run this project you will need both .NET Core v3.1 and Node installed on your environment.
-
-Server - `dotnet restore` - to restore nuget packages, `dotnet build` - to build the solution, `cd Timelogger.Api && dotnet run` - starts a server on http://localhost:3001. You can download Visual Studio Code. The project was tested on MacOS High Sierra and Windows 10.
-
-The server solution contains an API only with a basic Entity Framework in memory context that acts as a database.
-
-Client - `npm install` to install dependencies, `npm start` runs the create-react-app development server

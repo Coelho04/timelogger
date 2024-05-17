@@ -9,8 +9,8 @@
         <PackageReference Include="Microsoft.NET.Test.Sdk" />
         <PackageReference Include="coverlet.collector" />
         <PackageReference Include="FluentAssertions" />
+        <PackageReference Include="MockQueryable.Moq" />
         <PackageReference Include="Moq" />
-        <PackageReference Include="Moq.EntityFrameworkCore" />
         <PackageReference Include="xunit" />
         <PackageReference Include="xunit.runner.visualstudio">
           <PrivateAssets>all</PrivateAssets>
@@ -24,7 +24,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Projects\Queries\" />
       <Folder Include="TimeRegistrations\Commands\" />
     </ItemGroup>
 

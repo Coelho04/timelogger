@@ -12,9 +12,6 @@ public class GetTimeRegistrationsQueryHandler(IApplicationDbContext context, IMa
         CancellationToken cancellationToken)
     {
         (int projectId, int pageNumber, int pageSize) = request;
-
-        var x = context.TimeRegistrations
-            .Where(w => w.ProjectId == projectId);
         
         return await context.TimeRegistrations
             .Where(w => w.ProjectId == projectId)
